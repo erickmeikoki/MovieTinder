@@ -1,33 +1,29 @@
 # MovieTinder
 
-A modern movie discovery application inspired by Tinder's swipe interface. Built with React, TypeScript, and Material-UI.
+A Tinder-like interface for discovering movies. Swipe right on movies you're interested in, swipe left to skip.
+
+## Live Demo
+
+Visit the live application at: [https://movie-tinder-55c6cgezo-ericks-projects-374ac0ff.vercel.app](https://movie-tinder-55c6cgezo-ericks-projects-374ac0ff.vercel.app)
 
 ## Features
 
-- Swipe-based movie discovery interface
-- Movie details and trailers
-- User preferences and settings
-- Dark/Light theme support
-- Haptic feedback
-- Responsive design
+- Tinder-like swipe interface for movies
+- Movie details including trailers, cast, and ratings
+- Similar movie recommendations
+- Mobile-friendly design
+- PWA support for offline functionality
 
-## Tech Stack
+## Development
 
-- React
-- TypeScript
-- Material-UI
-- React Router
-- TMDB API
+### Prerequisites
 
-## Getting Started
+- Node.js
+- npm
 
-1. Clone the repository:
+### Setup
 
-```bash
-git clone https://github.com/erickmeikoki/MovieTinder.git
-cd MovieTinder
-```
-
+1. Clone the repository
 2. Install dependencies:
 
 ```bash
@@ -37,36 +33,32 @@ npm install
 3. Create a `.env` file in the root directory and add your TMDB API key:
 
 ```
-REACT_APP_TMDB_API_KEY=your_api_key_here
+VITE_TMDB_API_KEY=your_api_key_here
 ```
 
 4. Start the development server:
 
 ```bash
-npm start
+npm run dev
 ```
 
-## Project Structure
+### Building
 
-```
-src/
-├── components/     # Reusable UI components
-├── contexts/       # React contexts
-├── pages/          # Page components
-├── services/       # API services
-├── types/          # TypeScript type definitions
-├── utils/          # Utility functions
-└── theme/          # Theme configuration
+To create a production build:
+
+```bash
+npm run build
 ```
 
-## Contributing
+## Technologies Used
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- React
+- TypeScript
+- Vite
+- Material-UI
+- TMDB API
+- Vercel (Deployment)
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT

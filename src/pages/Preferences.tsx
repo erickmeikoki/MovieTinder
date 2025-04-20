@@ -14,7 +14,13 @@ import {
 } from "@mui/material";
 import { useAuth } from "../contexts/AuthContext";
 import { hapticFeedback } from "../utils/haptics";
-import { User } from "../types/User";
+
+interface Preferences {
+  genres: number[];
+  language: string;
+  rating: number;
+  keywords: string[];
+}
 
 const languageOptions = [
   { value: "en", label: "English" },
@@ -62,9 +68,9 @@ const getFullLanguageCode = (baseCode: string): string => {
   }
 };
 
-const Preferences: React.FC = () => {
+const PreferencesPage: React.FC = () => {
   const { user, updateUserPreferences } = useAuth();
-  const [preferences, setPreferences] = useState<User["preferences"]>({
+  const [preferences, setPreferences] = useState<Preferences>({
     genres: [],
     language: "en",
     rating: 0,
@@ -77,8 +83,10 @@ const Preferences: React.FC = () => {
   useEffect(() => {
     if (user?.preferences) {
       setPreferences({
-        ...user.preferences,
+        genres: user.preferences.genres || [],
         language: getBaseLanguageCode(user.preferences.language),
+        rating: user.preferences.rating || 0,
+        keywords: user.preferences.keywords || [],
       });
     }
   }, [user]);
@@ -91,8 +99,10 @@ const Preferences: React.FC = () => {
 
     try {
       await updateUserPreferences({
-        ...preferences,
+        genres: preferences.genres,
         language: getFullLanguageCode(preferences.language),
+        rating: preferences.rating,
+        keywords: preferences.keywords,
       });
       setSuccess(true);
       hapticFeedback.success();
@@ -162,4 +172,4 @@ const Preferences: React.FC = () => {
   );
 };
 
-export default Preferences;
+export default PreferencesPage;
